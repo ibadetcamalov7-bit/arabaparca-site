@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ka">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CAMALOV | Auto Parts</title>
+<link rel="stylesheet" href="style.css">
+<header><a class="logo" href="#">CAMALOV<b>.</b> <small>AUTO PARTS</small></a>
+    <nav><a href="#catalog">კატალოგი</a><a href="#contact">კონტაქტი</a><button class="ghost" id="adminBtn">მართვა
+            ↗</button></nav>
+</header>
+<section class="hero"><small>სწორი არჩევანი შენი ავტომობილისთვის</small>
+    <h1>სწორი ნაწილი.<br><span>ახალი გზა.</span></h1>
+    <p>იპოვე შენი ავტომობილისთვის შესაფერისი ნაწილი, ნახე ფასი და პირდაპირ დაუკავშირდი მაღაზიას.</p><a
+        href="#catalog"><button>კატალოგის ნახვა →</button></a>
+    <div class="badges">
+        <div>◈ შერჩევა მოდელისа და წლის მიხედვით</div>
+        <div>◈ მარტივი ძიებа</div>
+        <div>◈ პირდაპირი კავშირი</div>
+    </div>
+</section>
+<main class="wrap">
+    <section id="catalog">
+        <div class="top">
+            <div>
+                <h2>ავტონაწილები</h2>
+                <div class="muted">ყველაფერი, რაც შენს ავტომობილს სჭირდება, აქ არის.</div>
+            </div>
+            <p id="count" class="muted"></p>
+        </div>
+        <div class="filters"><input id="search" placeholder="მოძებნე ნაწილის სახელი ან მოდელი…"
+                aria-label="ნაწილის ძიება"><select id="brand" aria-label="მარკა">
+                <option value="">ყველა მარკა</option>
+            </select><select id="category" aria-label="კატეგორია">
+                <option value="">ყველა კატეგორია</option>
+            </select><select id="sort" aria-label="დალაგება">
+                <option value="default">ჯერ ახალი დამატებული</option>
+                <option value="low">ფასი: ზრდადობით</option>
+                <option value="high">ფასი: კლებადობით</option>
+            </select></div>
+        <p class="note">ეს არის წინასწარი ვერსია. ნიმუშად მოცემული პროდუქტები და ფასები რეალურ მარაგსა და შეთავაზებას არ
+            ასახავს.</p>
+        <div class="grid" id="grid"></div>
+    </section>
+    <section class="contact" id="contact">
+        <div>
+            <h2>შესაფერისი ნაწილი ვერ იპოვე?</h2>
+            <p>მიუთითე მოდელი და გამოშვების წელი და დაუკავშირდი მაღაზიას.</p>
+            <div id="phoneText"></div>
+        </div><button id="contactBtn">დაკავშირება WhatsApp-ით ↗</button>
+    </section>
+</main>
+<footer>TONY AUTO PARTS © 2026 · ავტონაწილების მაღაზია</footer>
+<dialog id="admin">
+    <div class="top">
+        <h2>მართვის პანელი</h2><button class="ghost" id="close">✕</button>
+    </div>
+    <p class="note">პროექტი განკუთვნილია ლოკალური დემონსტრაციისთვის. ინტერნეტში გამოქვეყნებამდე საჭიროა ადმინისტრატორის
+        ავტორიზაციის დამატება.</p>
+    <h3>მაღაზიის საკონტაქტო ინფორმაცია</h3>
+    <div class="row"><input id="phone" placeholder="ტელეფონი ქვეყნის კოდით, მაგალითად +995…"
+            aria-label="ტელეფონი"><button id="savePhone">შენახვა</button></div>
+    <h3 id="formTitle">პროდუქტის დამატება</h3>
+    <form id="productForm"><input type="hidden" id="pid"><label>ნაწილის სახელი<input id="name" required
+                maxlength="120"></label><label>მარკა<input id="pbrand" required
+                maxlength="40"></label><label>მოდელი<input id="model" required maxlength="60"></label><label>შესაბამისი
+            წლები<input id="years" required placeholder="2013–2016" maxlength="30"></label><label>ფასი (₾)<input
+                id="price" required type="number" min="0" step="0.01"></label><label>კატეგორია<select id="pcategory">
+                <option>განათება</option>
+                <option>სამუხრუჭე სისტემა</option>
+                <option>ძრავა</option>
+                <option>ძარა</option>
+                <option>დაკიდების სისტემა</option>
+            </select></label><label class="full">სურათის URL (არასავალდებულო)<input id="image" type="url"
+                placeholder="https://…"></label>
+        <div class="full row"><button type="submit">პროდუქტის შენახვა</button><button type="button" class="ghost"
+                id="reset">გასუფთავება</button></div>
+    </form>
+    <p id="status" role="status"></p>
+    <div id="adminList"></div>
+</dialog>
+<script src="app.js" defer></script>
+
+</html>
